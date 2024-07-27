@@ -3,6 +3,7 @@
 import SimpleLightbox from 'simplelightbox';
 // Додатковий імпорт стилів
 import 'simplelightbox/dist/simple-lightbox.min.css';
+import '../css/slb-mod.css';
 
 const images = [
   {
@@ -108,6 +109,10 @@ function getListHtml(images) {
 const gallery = document.querySelector('.gallery');
 gallery.insertAdjacentHTML('afterbegin', getListHtml(images)); // add gallery HTML markup
 
-console.log(document.querySelectorAll('.gallery a'));
+// console.log(document.querySelectorAll('.gallery a'));
 
-new SimpleLightbox('.gallery a');
+new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+  overlayOpacity: 0.8,
+});
