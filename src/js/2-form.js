@@ -22,14 +22,15 @@ if (Object.is(localStorage.getItem(localStorageKey), null)) {
 email.value = formData.email;
 message.value = formData.message;
 
+// виглядає жахливо, але працює
 form.addEventListener('input', evt => {
   //console.log(evt.target.attributes.name.value);
   switch (evt.target.attributes.name.value) {
     case 'email':
-      formData.email = evt.target.value;
+      formData.email = evt.target.value.trim();
       break;
     case 'message':
-      formData.message = evt.target.value;
+      formData.message = evt.target.value.trim();
       break;
   }
   localStorage.setItem(localStorageKey, JSON.stringify(formData));
